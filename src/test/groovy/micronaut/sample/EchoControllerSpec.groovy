@@ -23,12 +23,22 @@ class EchoControllerSpec extends Specification {
 
     void "test index"() {
 
-        println("call test")
-
         given:
         HttpResponse response = client.toBlocking().exchange("/echo")
 
         expect:
         response.status == HttpStatus.OK
+    }
+
+    void "test path person"() {
+
+        given:
+        HttpResponse response = client.toBlocking().exchange("/echo/person?name=hoge&age=1")
+
+        println response.getBody()
+
+        expect:
+        response.status == HttpStatus.CREATED
+
     }
 }
