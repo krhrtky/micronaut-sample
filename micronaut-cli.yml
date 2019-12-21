@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: micronaut.sample
+---
+testFramework: spock
+sourceLanguage: kotlin
